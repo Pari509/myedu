@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyEdu - Free Study Notes</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="darkToggle">
+      <span class="slider round"></span>
+    </label>
+    <span>Dark Mode</span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">MyEdu</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Notes</a></li>
+          <li><a href="#">Subjects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="hero-title">Free Notes for Every Student</h1>
+    <p class="hero-text">Get CBSE, NEET, JEE, and BTech notes for all major subjects — for free!</p>
+    <a href="#upload" class="hero-btn">Upload Your Notes</a>
+  </section>
+
+  <!-- Search -->
+  <section class="search-section">
+    <input type="text" id="searchInput" placeholder="Search for subjects...">
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <h2 class="section-title">Top Subjects</h2>
+    <div class="grid" id="notesGrid">
+
+      <!-- CARD TEMPLATE -->
+      <div class="card" data-title="Mathematics">
+        <img src="https://cdn-icons-png.flaticon.com/512/2936/2936639.png" alt="Math Icon"/>
+        <h4>Mathematics (Class 10-12)</h4>
+        <p>Formulas, sample papers, and revisions for Boards and JEE.</p>
+        <a href="#" class="download-btn">Download PDF</a>
+      </div>
+
+      <div class="card" data-title="Physics">
+        <img src="https://cdn-icons-png.flaticon.com/512/906/906175.png" alt="Physics Icon"/>
+        <h4>Physics (NEET/JEE)</h4>
+        <p>Concepts, derivations, numericals, and past year questions.</p>
+        <a href="#" class="download-btn">Download PDF</a>
+      </div>
+
+      <div class="card" data-title="Biology">
+        <img src="https://cdn-icons-png.flaticon.com/512/3290/3290501.png" alt="Bio Icon"/>
+        <h4>Biology (NEET/Boards)</h4>
+        <p>Diagrams, NCERT summaries, mind maps and flashcards.</p>
+        <a href="#" class="download-btn">Download PDF</a>
+      </div>
+
+      <!-- Add 3+ more cards below similarly with real icons -->
+      <!-- ... -->
+
+    </div>
+  </section>
+
+  <!-- Upload Form -->
+  <section id="upload" class="upload-section">
+    <h2 class="section-title">Upload Your Notes</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="text" placeholder="Subject Title" required />
+      <input type="file" required />
+      <button type="submit">Upload Note</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 MyEdu. Made with ❤️ for students.</p>
+  </footer>
+
+  <script>
+    // Search Filter
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const input = this.value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(input) ? 'block' : 'none';
+      });
+    });
+
+    // Dark Mode
+    document.getElementById('darkToggle').addEventListener('change', function () {
+      document.body.classList.toggle('dark-mode', this.checked);
+    });
+  </script>
+
+</body>
+</html>
